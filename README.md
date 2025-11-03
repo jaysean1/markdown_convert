@@ -1,103 +1,103 @@
-# Markdown 转换器 - Google Docs 插件
+# Markdown Converter - Google Docs Add-on
 
-这是一个 Google Docs 插件，可以一键将文档中的 Markdown 语法转换为 Google Docs 的原生格式。
+This is a Google Docs add-on that converts Markdown syntax to Google Docs native formatting with one click.
 
-## 功能特性
+## Features
 
-### 支持的 Markdown 语法
+### Supported Markdown Syntax
 
-#### 1. 标题 (Headers)
+#### 1. Headers
 ```markdown
-# 一级标题
-## 二级标题
-### 三级标题
-#### 四级标题
-##### 五级标题
-###### 六级标题
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
 ```
 
-#### 2. 文本格式 (Text Formatting)
+#### 2. Text Formatting
 ```markdown
-**加粗文本** 或 __加粗文本__
-*斜体文本* 或 _斜体文本_
-***粗斜体*** 或 ___粗斜体___
-~~删除线文本~~
+**Bold text** or __Bold text__
+*Italic text* or _Italic text_
+***Bold and italic*** or ___Bold and italic___
+~~Strikethrough text~~
 ```
 
-#### 3. 列表 (Lists)
+#### 3. Lists
 ```markdown
-- 无序列表项 1
-- 无序列表项 2
-* 也可以用星号
+- Unordered list item 1
+- Unordered list item 2
+* Can also use asterisks
 
-1. 有序列表项 1
-2. 有序列表项 2
-3. 有序列表项 3
+1. Ordered list item 1
+2. Ordered list item 2
+3. Ordered list item 3
 ```
 
-#### 4. 引用块 (Blockquotes)
+#### 4. Blockquotes
 ```markdown
-> 这是一段引用文本
-> 会显示为缩进的灰色文字
+> This is a quoted text
+> Will display as indented gray text
 ```
 
-#### 5. 表格 (Tables)
+#### 5. Tables
 ```markdown
-| 列标题1 | 列标题2 | 列标题3 |
-|---------|---------|---------|
-| 单元格1 | 单元格2 | 单元格3 |
-| 数据A   | 数据B   | 数据C   |
+| Column 1 | Column 2 | Column 3 |
+|----------|----------|----------|
+| Cell 1   | Cell 2   | Cell 3   |
+| Data A   | Data B   | Data C   |
 ```
 
-#### 6. 代码 (Code)
+#### 6. Code
 ```markdown
-这是`行内代码`示例
+This is an `inline code` example
 
 ```
-这是代码块
-可以多行
-支持等宽字体显示
+This is a code block
+Can span multiple lines
+Displays in monospace font
 ```
 ```
 
 ---
 
-## 安装步骤
+## Installation Steps
 
-### 方法 1: 直接在 Google Docs 中创建
+### Method 1: Create Directly in Google Docs
 
-1. **打开 Google Docs**
-   - 创建一个新文档或打开现有文档
+1. **Open Google Docs**
+   - Create a new document or open an existing one
 
-2. **打开 Apps Script 编辑器**
-   - 点击顶部菜单: `扩展程序` → `Apps Script`
+2. **Open Apps Script Editor**
+   - Click the top menu: `Extensions` → `Apps Script`
 
-3. **删除默认代码**
-   - 删除编辑器中的默认 `function myFunction() {}` 代码
+3. **Delete Default Code**
+   - Delete the default `function myFunction() {}` code in the editor
 
-4. **粘贴插件代码**
-   - 复制 `Code.gs` 文件中的所有代码
-   - 粘贴到 Apps Script 编辑器中
+4. **Paste Add-on Code**
+   - Copy all code from the `Code.gs` file
+   - Paste it into the Apps Script editor
 
-5. **保存项目**
-   - 点击保存图标（或按 Ctrl+S / Cmd+S）
-   - 给项目命名为 "Markdown Converter"
+5. **Save Project**
+   - Click the save icon (or press Ctrl+S / Cmd+S)
+   - Name the project "Markdown Converter"
 
-6. **授权插件**
-   - 点击运行按钮（▶️）或者返回文档刷新页面
-   - 第一次运行会要求授权，点击"审核权限"
-   - 选择你的 Google 账号
-   - 点击"高级" → "前往 Markdown Converter（不安全）"
-   - 点击"允许"
+6. **Authorize Add-on**
+   - Click the run button (▶️) or return to the document and refresh the page
+   - First run will request authorization, click "Review permissions"
+   - Select your Google account
+   - Click "Advanced" → "Go to Markdown Converter (unsafe)"
+   - Click "Allow"
 
-7. **完成！**
-   - 返回 Google Docs，刷新页面
-   - 你会在菜单栏看到新的 "Markdown 转换器" 菜单
+7. **Done!**
+   - Return to Google Docs and refresh the page
+   - You will see a new "Markdown Converter" menu in the menu bar
 
 ---
 
-## 使用方法
+## Usage
 
-1. **在 Google Docs 中输入 Markdown 格式的文本**
-2. **点击转换** - 点击菜单栏的 `Markdown 转换器` → `转换整个文档`
-3. **等待转换完成** - 完成后会弹出提示 "✅ Markdown 转换完成！"
+1. **Enter Markdown-formatted text in Google Docs**
+2. **Click Convert** - Click menu bar `Markdown Converter` → `Convert Entire Document`
+3. **Wait for conversion to complete** - A message will appear: "✅ Markdown conversion complete!"
