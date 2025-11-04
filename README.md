@@ -60,6 +60,15 @@ Displays in monospace font
 ```
 ```
 
+#### 7. Horizontal Rules (Dividers)
+```markdown
+Use three hyphens on their own line to create a horizontal rule
+
+---
+
+This creates a visual separator between sections
+```
+
 ---
 
 ## Installation Steps

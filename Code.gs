@@ -1,6 +1,6 @@
 // location: markdown_convert/Code.gs
 // Purpose: Google Docs Add-on to convert Markdown syntax to Google Docs formatting
-// This file contains all the conversion functions for headers, bold, italic, lists, tables, code, etc.
+// This file contains all the conversion functions for headers, bold, italic, lists, tables, horizontal rules, code, etc.
 
 /**
  * Runs when the document is opened and adds a custom menu to the menu bar
@@ -19,8 +19,9 @@ function onOpen() {
  * 1. Process code blocks first (prevent Markdown inside code from being converted)
  * 2. Then process headers
  * 3. Then process tables
- * 4. Then process lists and blockquotes
- * 5. Finally process inline formatting (bold, italic, etc.)
+ * 4. Then process horizontal rules (after tables to avoid converting table separators)
+ * 5. Then process lists and blockquotes
+ * 6. Finally process inline formatting (bold, italic, etc.)
  */
 function convertMarkdownToFormat() {
   try {
@@ -31,6 +32,7 @@ function convertMarkdownToFormat() {
     convertCodeBlocks(body);     // Code blocks (process first)
     convertHeaders(body);         // Headers
     convertTables(body);          // Tables
+    convertHorizontalRules(body); // Horizontal rules (after tables, before lists)
     convertLists(body);           // Lists
     convertBlockquotes(body);     // Blockquotes
     convertBoldItalic(body);      // Bold and italic
@@ -272,6 +274,36 @@ function convertBlockquotes(body) {
       textElement.setForegroundColor('#666666');
 
       Logger.log('Converted blockquote: ' + content);
+    }
+  }
+}
+
+/**
+ * Convert horizontal rules (dividers)
+ *
+ * Supports: --- -> Google Docs horizontal line
+ * Must be on its own line (spaces before/after are allowed)
+ */
+function convertHorizontalRules(body) {
+  var paragraphs = body.getParagraphs();
+
+  // Process in reverse order to avoid index issues when removing paragraphs
+  for (var i = paragraphs.length - 1; i >= 0; i--) {
+    var para = paragraphs[i];
+    var text = para.getText();
+
+    // Match --- on its own line (allow spaces before/after)
+    if (text.match(/^\s*---\s*$/)) {
+      // Get the position of this paragraph in the body
+      var childIndex = body.getChildIndex(para);
+
+      // Insert horizontal rule at this position
+      body.insertHorizontalRule(childIndex);
+
+      // Remove the original paragraph with ---
+      body.removeChild(para);
+
+      Logger.log('Converted horizontal rule at position: ' + childIndex);
     }
   }
 }
