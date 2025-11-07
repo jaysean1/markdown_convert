@@ -109,16 +109,16 @@ function convertHeaders(body) {
  */
 function convertBoldItalic(body) {
   // Process bold+italic first to avoid separate matches
-  processBoldItalic(body, '\\*\\*\\*(.+?)\\*\\*\\*', true, true);
-  processBoldItalic(body, '___(.+?)___', true, true);
+  processBoldItalic(body, '\\*\\*\\*([^\\*]+)\\*\\*\\*', true, true);
+  processBoldItalic(body, '___([^_]+)___', true, true);
 
   // Process bold **text** or __text__
-  processBoldItalic(body, '\\*\\*(.+?)\\*\\*', true, false);
-  processBoldItalic(body, '__(.+?)__', true, false);
+  processBoldItalic(body, '\\*\\*([^\\*]+)\\*\\*', true, false);
+  processBoldItalic(body, '__([^_]+)__', true, false);
 
   // Process italic *text* or _text_
-  processBoldItalic(body, '\\*(.+?)\\*', false, true);
-  processBoldItalic(body, '_(.+?)_', false, true);
+  processBoldItalic(body, '\\*([^\\*]+)\\*', false, true);
+  processBoldItalic(body, '_([^_]+)_', false, true);
 }
 
 /**
